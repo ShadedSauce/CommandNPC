@@ -45,7 +45,7 @@ public class NPCListener implements Listener {
 		}
 	}
 
-	@EventHandler(priority = EventPriority.HIGHEST)
+	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
 	public void onRight(NPCRightClickEvent event) {
 		if (CommandNPC.getCommandManager().hasNPCData(event.getNPC().getId()) && coolingDown.contains(event.getClicker().getUniqueId())) {
 			if(PluginSettings.CooldownMessage.getBoolean()) {
@@ -56,7 +56,7 @@ public class NPCListener implements Listener {
 		this.onClick(event.getClicker(), event.getNPC(), ClickType.RIGHT);
 	}
 
-	@EventHandler(priority = EventPriority.HIGHEST)
+	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
 	public void onLeft(NPCLeftClickEvent event) {
 		if (CommandNPC.getCommandManager().hasNPCData(event.getNPC().getId()) && coolingDown.contains(event.getClicker().getUniqueId())) {
 			if(PluginSettings.CooldownMessage.getBoolean()) {
